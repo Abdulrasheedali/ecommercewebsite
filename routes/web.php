@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +28,15 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+Route::get('redirect',[HomeController::class,'redirect']);
+
+
+// Admin Dashboard .....CATEGORYS............
+
+Route::get('category',[AdminController::class,'category']);
+Route::post('/add-category', [AdminController::class, 'add_category'])->name('add_category');
+
+
+
